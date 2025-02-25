@@ -1,0 +1,14 @@
+from bark import generate_audio
+import torchaudio
+import torch
+
+# النص الذي تريدين تحويله إلى صوت
+text = "Hello! This is an AI-generated voice using Bark. Let's test its capabilities."
+
+# توليد الصوت باستخدام Bark
+audio = generate_audio(text, speaker='en_speaker_1')
+
+# حفظ الصوت كملف WAV
+torchaudio.save("bark_output.wav", torch.tensor(audio).unsqueeze(0), 24000)
+
+print("✅ تم إنشاء الصوت بنجاح وحفظه كملف 'bark_output.wav'!")
